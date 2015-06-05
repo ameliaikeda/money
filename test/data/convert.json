@@ -1,0 +1,15 @@
+{
+  "disclaimer": "[...]",
+  "license": "[...]",
+  "request": {
+    "query": "/convert/%d/%s/EUR",
+    "amount": 0,
+    "from": "%s",
+    "to": "%s"
+  },
+  "meta": {
+    "timestamp": 0,
+    "rate": 0.0
+  },
+  "response": 0.0
+}

@@ -1,0 +1,6 @@
+{
+  "error" : true,
+  "status" : 403,
+  "message" : "access_restricted",
+  "description" : "Your access has been revoked due to abuse - please contact support@openexchangerates.org."
+}

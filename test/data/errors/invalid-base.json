@@ -1,0 +1,6 @@
+{
+  "error": true,
+  "status": 400,
+  "message": "invalid_base",
+  "description": "Client requested rates for an unsupported `base` currency"
+}

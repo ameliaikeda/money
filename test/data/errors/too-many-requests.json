@@ -1,0 +1,6 @@
+{
+  "error" : true,
+  "status" : 429,
+  "message" : "access_restricted",
+  "description" : "Too Many Requests from your App Key - please reduce your usage or contact support@openexchangerates.org."
+}
