@@ -1,0 +1,6 @@
+/vendor
+/code-coverage
+/.idea
+
+# we're a library - ignore the composer.lock file
+composer.lock
