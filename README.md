@@ -62,4 +62,13 @@ class Foo {
 }
 ```
 
+Add the following configuration to the `config/services.php` array
+
+```php
+    "money" => [
+        "api" => "openexchangerates", // or "hmrc"
+        "key" => YOUR_APP_ID,         // null if using HMRC
+    ],
+```
+
 [oer-signup]: https://openexchangerates.org/sign-up
