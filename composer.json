@@ -5,6 +5,7 @@
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "5.*",
+        "nesbot/carbon": "1.*",
         "php": ">= 5.4",
         "ext-openssl": "*"
     },
