@@ -56,9 +56,15 @@ class Foo {
     public function __construct(FactoryInterface $money) {
         $money->convert($amount = 130.01, $from = "USD", $to = "GBP");
         Money::convert($amount, $from, $to);
-        $money->base
-        $money->rates
+
+        $money->getBase();
+        Money::getBase();
+        
+        $money->getRates();
+        Money::getRates();
+
         $newMoney = $money->base("GBP"); // switch the base currency
+        $newMoney = Money::base("GBP");
     }
 }
 ```
