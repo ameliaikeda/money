@@ -50,14 +50,15 @@ You can type-hint `Amelia\Money\FactoryInterface` or use the `Amelia\Money\Facad
 <?php
 
 use Amelia\Money\FactoryInterface;
+use Money;
 
 class Foo {
     public function __construct(FactoryInterface $money) {
-        // $money->convert($amount = 130.01, $from = "USD", $to = "GBP");
-        // Money::convert($amount, $from, $to);
-        // $money->base
-        // $money->rates
-        // $newMoney = $money->base("GBP");
+        $money->convert($amount = 130.01, $from = "USD", $to = "GBP");
+        Money::convert($amount, $from, $to);
+        $money->base
+        $money->rates
+        $newMoney = $money->base("GBP"); // switch the base currency
     }
 }
 ```
