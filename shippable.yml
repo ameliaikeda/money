@@ -12,11 +12,12 @@ before_install:
 install:
   - composer install
 
-script: vendor/bin/phpunit
+script: vendor/bin/phpunit --log-junit shippable/testresults/phpunit.xml
 
 matrix:
   allow_failures:
-    - php: 7.0
+    - php: hhvm
+    - php: 7
   fast_finish: true
 
 sudo: false
