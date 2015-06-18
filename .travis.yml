@@ -7,7 +7,7 @@ php:
   - 7.0
 
 before_install: composer self-update
-install: composer install
+install: travis_retry composer install --no-interaction --prefer-source
 script: vendor/bin/phpunit
 
 sudo: false
