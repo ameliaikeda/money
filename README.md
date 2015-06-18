@@ -1,7 +1,7 @@
 Money.php
 ---------
 
-[![Shippable](https://img.shields.io/shippable/5582c6b9edd7f2c052236660.svg)](https://app.shippable.com/projects/5582c6b9edd7f2c052236660)
+[![Travis](https://img.shields.io/travis/joyent/node.svg)](https://magnum.travis-ci.com/ameliaikeda/money)
 [![Packagist](https://img.shields.io/packagist/dt/amelia/money.svg)](https://packagist.org/packages/amelia/money)
 [![Current Version](https://img.shields.io/packagist/v/amelia/money.svg)](https://packagist.org/packages/amelia/money)
 [![MIT License](https://img.shields.io/packagist/l/amelia/money.svg)](https://packagist.org/packages/amelia/money)
