@@ -2,6 +2,7 @@ Money.php
 ---------
 
 [![Travis](https://img.shields.io/travis/joyent/node.svg)](https://magnum.travis-ci.com/ameliaikeda/money)
+[![Scrutinizer](https://scrutinizer-ci.com/g/ameliaikeda/money/badges/quality-score.png?b=master&s=543bbdf9eb6e5c12e2f31c25033b0b6cbfa4e422)](https://scrutinizer-ci.com/g/ameliaikeda/money/?branch=master)
 [![Packagist](https://img.shields.io/packagist/dt/amelia/money.svg)](https://packagist.org/packages/amelia/money)
 [![Current Version](https://img.shields.io/packagist/v/amelia/money.svg)](https://packagist.org/packages/amelia/money)
 [![MIT License](https://img.shields.io/packagist/l/amelia/money.svg)](https://packagist.org/packages/amelia/money)
