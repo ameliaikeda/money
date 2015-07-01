@@ -79,4 +79,6 @@ Add the following configuration to the `config/services.php` array
     ],
 ```
 
+Alternatively, use `MONEY_API_TYPE` and `MONEY_API_KEY` `.env` variables.
+
 [oer-signup]: https://openexchangerates.org/sign-up
