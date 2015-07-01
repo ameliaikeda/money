@@ -31,8 +31,6 @@ class Converter implements ConverterInterface {
      *
      * @param array $rates Rate data in the form ["GBP" => 1.23456, ...]
      * @param string $base The currency that $rates are relative to
-     *
-     * @throws \InvalidArgumentException if $base is not a key in $rates
      */
     public function __construct(array $rates, $base = "GBP") {
         $this->rates = array_change_key_case($rates, CASE_UPPER);
