@@ -1,4 +1,4 @@
-<?php namespace Amelia\Money;
+<?php namespace Amelia\Money\Api;
 
 use Carbon\Carbon;
 
