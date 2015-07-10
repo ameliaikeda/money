@@ -11,6 +11,14 @@ use Amelia\Money\Exception\RateLimitException;
 use Carbon\Carbon;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * An API client used for fetching exchange rates
+ *
+ * @author Amelia Ikeda (amelia@dorks.io)
+ * @license MIT
+ * @link https://github.com/ameliaikeda/money
+ * @link https://openexchangerates.org
+ */
 class OpenExchangeRates implements ApiRepositoryInterface {
 
     /**
