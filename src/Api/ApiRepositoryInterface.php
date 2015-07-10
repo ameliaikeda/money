@@ -16,7 +16,7 @@ interface ApiRepositoryInterface {
      * Get latest rate data, usually associated with Carbon::now()
      *
      * @see \Carbon\Carbon::now()
-     * @return \Amelia\Money\Api\RateRepositoryInterface
+     * @return \Amelia\Money\Container\RateContainerInterface
      */
     public function getLatest();
 
@@ -24,7 +24,7 @@ interface ApiRepositoryInterface {
      * Get historical rate data (end-of-day) for $date
      *
      * @param \Carbon\Carbon $date
-     * @return \Amelia\Money\Api\RateRepositoryInterface
+     * @return \Amelia\Money\Container\RateContainerInterface
      */
     public function getHistorical(Carbon $date);
 
@@ -34,7 +34,7 @@ interface ApiRepositoryInterface {
      * and is mostly used for HMRC's weekly updates in that implementation
      *
      * @param \Carbon\Carbon $date
-     * @return \Amelia\Money\Api\RateRepositoryInterface[]
+     * @return \Amelia\Money\Container\RateContainerInterface[]
      */
     public function getUpdates(Carbon $date);
 }

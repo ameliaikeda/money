@@ -12,6 +12,27 @@ use Carbon\Carbon;
 class OpenExchangeRateContainer implements RateContainerInterface {
 
     /**
+     * Code => rate array of rates
+     *
+     * @var array
+     */
+    protected $rates;
+
+    /**
+     * Which rate (= 1.000) is everything based on
+     *
+     * @var string
+     */
+    protected $base;
+
+    /**
+     * What date were the dates fetched/generated?
+     *
+     * @var \Carbon\Carbon
+     */
+    protected $date;
+
+    /**
      * Parse an openexchangerates response
      *
      * @param array|\ArrayObject $json

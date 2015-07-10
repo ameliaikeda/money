@@ -14,6 +14,13 @@ use Psr\Http\Message\ResponseInterface;
 class OpenExchangeRates implements ApiRepositoryInterface {
 
     /**
+     * HTTP transport adapter
+     *
+     * @var \Amelia\Money\Api\Adapter\AdapterInterface
+     */
+    protected $client;
+
+    /**
      * Construct a new instance with an adapter
      *
      * @param \Amelia\Money\Api\Adapter\AdapterInterface $client
