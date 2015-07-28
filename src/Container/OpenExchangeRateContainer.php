@@ -35,13 +35,13 @@ class OpenExchangeRateContainer implements RateContainerInterface {
     /**
      * Parse an openexchangerates response
      *
-     * @param array|\ArrayObject $json
+     * @param \stdClass $json
      */
     public function __construct($json)
     {
-        $this->rates = $json['rates'];
-        $this->base = $json['base'];
-        $this->date = Carbon::parse($json['timestamp']);
+        $this->rates = (array) $json->rates;
+        $this->base = (string) $json->base;
+        $this->date = Carbon::createFromTimestampUTC($json->timestamp);
     }
 
     /**

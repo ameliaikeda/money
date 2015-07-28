@@ -50,10 +50,13 @@ class OpenExchangeRates implements ApiRepositoryInterface {
         if ( ! $this->isJson($response)) {
             throw new InvalidResponseException("json was expected, [{$response->getHeader('content-type')}] given");
         }
-
         $response = json_decode($response->getBody()->getContents());
 
-        if ($response->error) {
+        if ( ! $response) {
+            throw new InvalidResponseException("Expected json object, got " . gettype($response) . " from the API");
+        }
+
+        if (isset($response->error)) {
             $this->error($response->status, $response->message, $response->description);
         }
 
@@ -110,9 +113,9 @@ class OpenExchangeRates implements ApiRepositoryInterface {
      */
     protected function isJson(ResponseInterface $response)
     {
-        $type = $response->getHeader('content-type');
+        $type = array_get($response->getHeader('content-type'), 0, "");
 
-        return strpos('json', $type) !== -1 and $response->getBody()->getContents() !== 'null';
+        return strpos($type, 'json') !== -1;
     }
 
     /**
