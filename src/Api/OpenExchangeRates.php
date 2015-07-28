@@ -43,7 +43,7 @@ class OpenExchangeRates implements ApiRepositoryInterface {
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @throws \Amelia\Money\Exception\InvalidResponseException
-     * @return \ArrayObject
+     * @return \stdClass
      */
     protected function check(ResponseInterface $response)
     {
