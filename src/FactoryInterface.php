@@ -22,7 +22,7 @@ interface FactoryInterface {
     /**
      * Get the API instance used to populate rate data
      *
-     * @return \Amelia\Money\Api\ApiRepositoryInterface
+     * @return \Amelia\Money\Api\ApiInterface
      */
     public function api();
 
@@ -41,4 +41,12 @@ interface FactoryInterface {
      * @return $this
      */
     public function latest();
+
+    /**
+     * Create a new Factory instance set up for OpenExchangeRates
+     *
+     * @param array $options
+     * @return \Amelia\Money\FactoryInterface
+     */
+    public static function create(array $options);
 }

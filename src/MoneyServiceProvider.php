@@ -2,11 +2,18 @@
 
 use Amelia\Money\Api\Adapter\GuzzleHttpAdapter;
 use Amelia\Money\Api\OpenExchangeRates;
-use Amelia\Money\Container\OpenExchangeRateContainer;
 use GuzzleHttp\Client;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Service Provider for Laravel 5 (technically works with 4)
+ *
+ * @author Amelia Ikeda (amelia@dorks.io)
+ * @license MIT
+ * @link https://github.com/ameliaikeda/money
+ * @link http://laravel.com/docs/master/providers
+ */
 class MoneyServiceProvider extends ServiceProvider {
 
     /**

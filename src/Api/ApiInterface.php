@@ -10,7 +10,7 @@ use Carbon\Carbon;
  * @license MIT
  * @link https://github.com/ameliaikeda/money
  */
-interface ApiRepositoryInterface {
+interface ApiInterface {
 
     /**
      * Get latest rate data, usually associated with Carbon::now()

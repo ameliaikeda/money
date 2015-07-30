@@ -19,7 +19,7 @@ use Psr\Http\Message\ResponseInterface;
  * @link https://github.com/ameliaikeda/money
  * @link https://openexchangerates.org
  */
-class OpenExchangeRates implements ApiRepositoryInterface {
+class OpenExchangeRates implements ApiInterface {
 
     /**
      * HTTP transport adapter
