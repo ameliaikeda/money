@@ -32,7 +32,7 @@ class OpenExchangeRatesFactoryTest extends PHPUnit_Framework_TestCase {
         $factory = OpenExchangeRatesFactory::create(['key' => '']);
         $api = $factory->api();
         $this->assertInstanceOf('Amelia\Money\Api\ApiInterface', $api);
-        $this->assertInstanceOf('Amelia\Money\Api\OpenExchangeRates',      $api);
+        $this->assertInstanceOf('Amelia\Money\Api\OpenExchangeRates', $api);
     }
 
     /**
