@@ -23,17 +23,15 @@ class MoneyServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        // todo: not hardcode this, and have Factory be able to figure out what to do
-        // todo: bind each part separately
         $this->app->bind('Amelia\Money\FactoryInterface', function (Application $app) {
-            $auth = $app['config']->get("services.money.app_key");
-            $client = new Client([
-                "base_uri" => "https://openexchangerates.org/api",
-                "query"    => ["app_id" => $auth],
-                "headers"  => ['User-Agent' => 'amelia/money (https://github.com/ameliaikeda/money) v' . Factory::VERSION],
-            ]);
+            $config = $app['config']->get("services.money", []);
+            $type = array_get($config, "api", "openexchangerates");
 
-            return new Factory(new OpenExchangeRates(new GuzzleHttpAdapter($client)));
+            switch ($type) {
+                case "openexchangerates":
+                default:
+                    return OpenExchangeRatesFactory::create($config);
+            }
         });
     }
 }
