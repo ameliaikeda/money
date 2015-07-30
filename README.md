@@ -61,7 +61,7 @@ Add the following configuration to the `config/services.php` array
 <?php
 
 use Amelia\Money\OpenExchangeRatesFactory;
-$converter = OpenExchangeRatesFactory::create("YOUR_APP_ID");
+$converter = OpenExchangeRatesFactory::create(["key" => "YOUR_APP_ID"]);
 
 $converter->convert(140, "gbp", "nok"); // currency codes are case-insensitive.
 var_dump($converter->getRates(), $converter->getBase());
