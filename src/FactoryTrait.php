@@ -7,17 +7,17 @@ use Carbon\Carbon;
  * @license MIT
  * @
  */
-trait FactoryTrait {
-
+trait FactoryTrait
+{
     /**
-     * Converter instance used for initialising everything
+     * Converter instance used for initialising everything.
      *
      * @var \Amelia\Money\ConverterInterface
      */
     protected $converter;
 
     /**
-     * Exchange rates API adapter
+     * Exchange rates API adapter.
      *
      * @var \Amelia\Money\Api\ApiInterface
      */
@@ -31,7 +31,7 @@ trait FactoryTrait {
     protected $date;
 
     /**
-     * Get the API instance used to populate rate data
+     * Get the API instance used to populate rate data.
      *
      * @return \Amelia\Money\Api\Adapter\AdapterInterface
      */
@@ -56,7 +56,7 @@ trait FactoryTrait {
     }
 
     /**
-     * Revert back to using the latest rates data
+     * Revert back to using the latest rates data.
      *
      * @return $this
      */

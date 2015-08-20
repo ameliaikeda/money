@@ -2,27 +2,26 @@
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * Guzzle adapter
+ * Guzzle adapter.
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
  * @link https://github.com/ameliaikeda/money
  */
-class GuzzleHttpAdapter implements AdapterInterface {
-
+class GuzzleHttpAdapter implements AdapterInterface
+{
     /**
-     * Guzzle client
+     * Guzzle client.
      *
      * @var \GuzzleHttp\ClientInterface
      */
     protected $client;
 
     /**
-     * Inject a guzzle client into the adapter
+     * Inject a guzzle client into the adapter.
      *
      * @param \GuzzleHttp\ClientInterface $client
      */
@@ -32,7 +31,7 @@ class GuzzleHttpAdapter implements AdapterInterface {
     }
 
     /**
-     * Simple helper method to create a request for a GET and send it
+     * Simple helper method to create a request for a GET and send it.
      *
      * @param string $url The URL to fetch
      * @return \Psr\Http\Message\ResponseInterface
@@ -45,7 +44,7 @@ class GuzzleHttpAdapter implements AdapterInterface {
     }
 
     /**
-     * Request directly using a PSR-7 request object
+     * Request directly using a PSR-7 request object.
      *
      * @param \Psr\Http\Message\RequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface
@@ -56,7 +55,7 @@ class GuzzleHttpAdapter implements AdapterInterface {
     }
 
     /**
-     * Create a simple PSR-7 request object from a URL and a method
+     * Create a simple PSR-7 request object from a URL and a method.
      *
      * @param string $url
      * @param string $method

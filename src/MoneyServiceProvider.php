@@ -1,21 +1,19 @@
 <?php namespace Amelia\Money;
 
-use Amelia\Money\Api\Adapter\GuzzleHttpAdapter;
 use Amelia\Money\Api\OpenExchangeRates;
-use GuzzleHttp\Client;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Service Provider for Laravel 5 (technically works with 4)
+ * Service Provider for Laravel 5 (technically works with 4).
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
  * @link https://github.com/ameliaikeda/money
  * @link http://laravel.com/docs/master/providers
  */
-class MoneyServiceProvider extends ServiceProvider {
-
+class MoneyServiceProvider extends ServiceProvider
+{
     /**
      * Register the service provider.
      *
@@ -24,11 +22,11 @@ class MoneyServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->bind('Amelia\Money\FactoryInterface', function (Application $app) {
-            $config = $app['config']->get("services.money", []);
-            $type = array_get($config, "api", "openexchangerates");
+            $config = $app['config']->get('services.money', []);
+            $type = array_get($config, 'api', 'openexchangerates');
 
             switch ($type) {
-                case "openexchangerates":
+                case 'openexchangerates':
                 default:
                     return OpenExchangeRatesFactory::create($config);
             }

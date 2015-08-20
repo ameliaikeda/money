@@ -1,5 +1,6 @@
 <?php namespace Amelia\Money\Exception;
 
-class NotFoundException extends ApiException {
+class NotFoundException extends ApiException
+{
     //
 }

@@ -1,5 +1,6 @@
 <?php namespace Amelia\Money\Exception;
 
-class InvalidResponseException extends ApiException {
+class InvalidResponseException extends ApiException
+{
     //
 }

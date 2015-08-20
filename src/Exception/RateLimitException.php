@@ -1,5 +1,6 @@
 <?php namespace Amelia\Money\Exception;
 
-class RateLimitException extends ApiException {
+class RateLimitException extends ApiException
+{
     //
 }

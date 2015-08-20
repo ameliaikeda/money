@@ -3,23 +3,23 @@
 use Carbon\Carbon;
 
 /**
- * A container used for holding rates from an API, etc
+ * A container used for holding rates from an API, etc.
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
  * @link https://github.com/ameliaikeda/money
  */
-class OpenExchangeRateContainer implements RateContainerInterface {
-
+class OpenExchangeRateContainer implements RateContainerInterface
+{
     /**
-     * Code => rate array of rates
+     * Code => rate array of rates.
      *
      * @var array
      */
     protected $rates;
 
     /**
-     * Which rate (= 1.000) is everything based on
+     * Which rate (= 1.000) is everything based on.
      *
      * @var string
      */
@@ -33,7 +33,7 @@ class OpenExchangeRateContainer implements RateContainerInterface {
     protected $date;
 
     /**
-     * Parse an openexchangerates response
+     * Parse an openexchangerates response.
      *
      * @param \stdClass $json
      */
@@ -45,7 +45,7 @@ class OpenExchangeRateContainer implements RateContainerInterface {
     }
 
     /**
-     * Get an array of rates as code => rate
+     * Get an array of rates as code => rate.
      *
      * @return array
      */
@@ -55,7 +55,7 @@ class OpenExchangeRateContainer implements RateContainerInterface {
     }
 
     /**
-     * Get the base currency used by the rates (base == 1.0000)
+     * Get the base currency used by the rates (base == 1.0000).
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class OpenExchangeRateContainer implements RateContainerInterface {
     }
 
     /**
-     * Get the date that rates were fetched
+     * Get the date that rates were fetched.
      *
      * @return \Carbon\Carbon
      */

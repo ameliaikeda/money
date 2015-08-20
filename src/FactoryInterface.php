@@ -17,10 +17,10 @@ use Carbon\Carbon;
  * @method string             getBase()
  * @method bool               is(string $base)
  */
-interface FactoryInterface {
-
+interface FactoryInterface
+{
     /**
-     * Get the API instance used to populate rate data
+     * Get the API instance used to populate rate data.
      *
      * @return \Amelia\Money\Api\ApiInterface
      */
@@ -36,14 +36,14 @@ interface FactoryInterface {
     public function date(Carbon $date);
 
     /**
-     * Revert back to using the latest rates data
+     * Revert back to using the latest rates data.
      *
      * @return $this
      */
     public function latest();
 
     /**
-     * Create a new Factory instance set up for OpenExchangeRates
+     * Create a new Factory instance set up for OpenExchangeRates.
      *
      * @param array $options
      * @return \Amelia\Money\FactoryInterface
