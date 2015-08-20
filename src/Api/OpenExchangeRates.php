@@ -12,24 +12,24 @@ use Carbon\Carbon;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * An API client used for fetching exchange rates
+ * An API client used for fetching exchange rates.
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
  * @link https://github.com/ameliaikeda/money
  * @link https://openexchangerates.org
  */
-class OpenExchangeRates implements ApiInterface {
-
+class OpenExchangeRates implements ApiInterface
+{
     /**
-     * HTTP transport adapter
+     * HTTP transport adapter.
      *
      * @var \Amelia\Money\Api\Adapter\AdapterInterface
      */
     protected $client;
 
     /**
-     * Construct a new instance with an adapter
+     * Construct a new instance with an adapter.
      *
      * @param \Amelia\Money\Api\Adapter\AdapterInterface $client
      */
@@ -39,7 +39,7 @@ class OpenExchangeRates implements ApiInterface {
     }
 
     /**
-     * Check the response that was sent off and return it
+     * Check the response that was sent off and return it.
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @throws \Amelia\Money\Exception\InvalidResponseException
@@ -47,13 +47,13 @@ class OpenExchangeRates implements ApiInterface {
      */
     protected function check(ResponseInterface $response)
     {
-        if ( ! $this->isJson($response)) {
+        if (! $this->isJson($response)) {
             throw new InvalidResponseException("json was expected, [{$response->getHeader('content-type')}] given");
         }
         $response = json_decode($response->getBody()->getContents());
 
-        if ( ! $response) {
-            throw new InvalidResponseException("Expected json object, got " . gettype($response) . " from the API");
+        if (! $response) {
+            throw new InvalidResponseException('Expected json object, got '.gettype($response).' from the API');
         }
 
         if (isset($response->error)) {
@@ -64,7 +64,7 @@ class OpenExchangeRates implements ApiInterface {
     }
 
     /**
-     * Throw exceptions that correspond to error codes
+     * Throw exceptions that correspond to error codes.
      *
      * @param int $status
      * @param string $code
@@ -101,46 +101,46 @@ class OpenExchangeRates implements ApiInterface {
                 throw new NotFoundException($description, $status);
 
             default:
-                throw new InvalidResponseException($description . " ($code)", $status);
+                throw new InvalidResponseException($description." ($code)", $status);
         }
     }
 
     /**
-     * Check if a response is a valid json response
+     * Check if a response is a valid json response.
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @return bool
      */
     protected function isJson(ResponseInterface $response)
     {
-        $type = array_get($response->getHeader('content-type'), 0, "");
+        $type = array_get($response->getHeader('content-type'), 0, '');
 
         return strpos($type, 'json') !== -1;
     }
 
     /**
-     * Get latest rate data, usually associated with Carbon::now()
+     * Get latest rate data, usually associated with Carbon::now().
      *
      * @see \Carbon\Carbon::now()
      * @return \Amelia\Money\Container\RateContainerInterface
      */
     public function getLatest()
     {
-        $response = $this->client->fetch("/latest.json");
+        $response = $this->client->fetch('/latest.json');
         $response = $this->check($response);
 
         return new OpenExchangeRateContainer($response);
     }
 
     /**
-     * Get historical rate data (end-of-day) for $date
+     * Get historical rate data (end-of-day) for $date.
      *
      * @param \Carbon\Carbon $date
      * @return \Amelia\Money\Container\RateContainerInterface
      */
     public function getHistorical(Carbon $date)
     {
-        $response = $this->client->fetch("/historical/{$date->format("Y-m-d")}.json");
+        $response = $this->client->fetch("/historical/{$date->format('Y-m-d')}.json");
         $response = $this->check($response);
 
         return new OpenExchangeRateContainer($response);
@@ -149,7 +149,7 @@ class OpenExchangeRates implements ApiInterface {
     /**
      * Get any updates that have happened since or for $date
      * This is implementation-specific (openexchangerates has no equivalent),
-     * and is mostly used for HMRC's weekly updates in that implementation
+     * and is mostly used for HMRC's weekly updates in that implementation.
      *
      * @param \Carbon\Carbon $date
      * @return \Amelia\Money\Container\RateContainerInterface[]
