@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 
 /**
- * A trait that adds the ability to add boilerplate to a factory
+ * A trait that adds the ability to add boilerplate to a factory.
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
@@ -58,7 +58,7 @@ trait FactoryTrait
     }
 
     /**
-     * Get the current internal date, or null
+     * Get the current internal date, or null.
      *
      * @return \Carbon\Carbon|null
      */
@@ -68,7 +68,7 @@ trait FactoryTrait
     }
 
     /**
-     * Revert back to using the latest rates data
+     * Revert back to using the latest rates data.
      *
      * @return $this
      */

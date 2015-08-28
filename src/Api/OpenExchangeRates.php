@@ -48,7 +48,7 @@ class OpenExchangeRates implements ApiInterface
     protected function check(ResponseInterface $response)
     {
         if (! $this->isJson($response)) {
-            $header = array_get($response->getHeader('content-type'), 0, "no content-type");
+            $header = array_get($response->getHeader('content-type'), 0, 'no content-type');
             throw new InvalidResponseException("json was expected, [$header] given");
         }
         $response = json_decode($response->getBody()->getContents());

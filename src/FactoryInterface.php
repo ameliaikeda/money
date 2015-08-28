@@ -43,14 +43,14 @@ interface FactoryInterface
     public function latest();
 
     /**
-     * Get the current internal date, or null
+     * Get the current internal date, or null.
      *
      * @return \Carbon\Carbon|null
      */
     public function getDate();
 
     /**
-     * Create a new Factory instance set up for OpenExchangeRates
+     * Create a new Factory instance set up for OpenExchangeRates.
      *
      * @param array $options
      * @return \Amelia\Money\FactoryInterface

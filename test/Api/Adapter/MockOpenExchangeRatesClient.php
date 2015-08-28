@@ -4,7 +4,7 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 
 /**
- * A mock API that uses static data taken from the OpenExchangeRates API
+ * A mock API that uses static data taken from the OpenExchangeRates API.
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
@@ -13,21 +13,21 @@ use Psr\Http\Message\RequestInterface;
 class MockOpenExchangeRatesClient implements AdapterInterface
 {
     /**
-     * Overridden URL for tests
+     * Overridden URL for tests.
      *
      * @var string
      */
     protected $url;
 
     /**
-     * If we send json or not
+     * If we send json or not.
      *
      * @var bool
      */
     protected $bad = false;
 
     /**
-     * Test-specific helper for testing our array responses
+     * Test-specific helper for testing our array responses.
      *
      * @param string $url
      */
@@ -37,18 +37,18 @@ class MockOpenExchangeRatesClient implements AdapterInterface
     }
 
     /**
-     * Get the filename of our sample data
+     * Get the filename of our sample data.
      *
      * @param string $url
      * @return string
      */
     protected function getEndpoint($url)
     {
-        return __DIR__ . '/data' . ($this->url ?: $url);
+        return __DIR__.'/data'.($this->url ?: $url);
     }
 
     /**
-     * Simple helper method to create a request for a GET and send it
+     * Simple helper method to create a request for a GET and send it.
      *
      * @param string $url The URL to fetch
      * @return \Psr\Http\Message\ResponseInterface
@@ -59,14 +59,14 @@ class MockOpenExchangeRatesClient implements AdapterInterface
         $headers = ['Content-Type' => ($this->bad) ? 'text/html' : 'application/json'];
 
         return new Response(
-            array_get(json_decode($body, true), "status", 200), // status code will override whatever is sent
+            array_get(json_decode($body, true), 'status', 200), // status code will override whatever is sent
             $headers,
             $body
         );
     }
 
     /**
-     * Request directly using a PSR-7 request object
+     * Request directly using a PSR-7 request object.
      *
      * @param \Psr\Http\Message\RequestInterface $request
      * @return \Psr\Http\Message\ResponseInterface

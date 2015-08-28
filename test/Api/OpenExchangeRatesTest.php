@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Test that the openexchangerates API wrapper works correctly using a mock API
+ * Test that the openexchangerates API wrapper works correctly using a mock API.
  *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
@@ -19,9 +19,10 @@ class OpenExchangeRatesTest extends PHPUnit_Framework_TestCase
     protected $client;
 
     /**
-     * Set up tests
+     * Set up tests.
      */
-    public function setUp() {
+    public function setUp()
+    {
         $this->client = new MockOpenExchangeRatesClient();
     }
 
@@ -188,7 +189,7 @@ class OpenExchangeRatesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * We don't have any way to fetch updates from a certain point
+     * We don't have any way to fetch updates from a certain point.
      *
      * @expectedException \Amelia\Money\Exception\NotFoundException
      */
@@ -197,9 +198,4 @@ class OpenExchangeRatesTest extends PHPUnit_Framework_TestCase
         $api = new OpenExchangeRates($this->client);
         $api->getUpdates(Carbon::now());
     }
-
-
-
-
-
 }
