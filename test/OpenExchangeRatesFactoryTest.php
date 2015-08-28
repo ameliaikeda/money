@@ -1,5 +1,6 @@
 <?php namespace Amelia\Money;
 
+use Carbon\Carbon;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -50,5 +51,16 @@ class OpenExchangeRatesFactoryTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(is_callable([$factory, 'getRate']), 'Factory::getRate');
         $this->assertTrue(is_callable([$factory, 'getBase']), 'Factory::getBase');
         $this->assertTrue(is_callable([$factory, 'convert']), 'Factory::convert');
+    }
+
+    public function testFactoryDateHandling()
+    {
+        $factory = OpenExchangeRatesFactory::create(['key' => '']);
+        $this->assertNull($factory->getDate());
+
+        $factory->date(Carbon::create(2015));
+        $date = $factory->getDate();
+        $this->assertInstanceOf('Carbon\Carbon', $date);
+        $this->assertEquals('2015', $date->format('Y'));
     }
 }

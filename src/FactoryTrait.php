@@ -56,7 +56,17 @@ trait FactoryTrait
     }
 
     /**
-     * Revert back to using the latest rates data.
+     * Get the current internal date, or null
+     *
+     * @return \Carbon\Carbon|null
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Revert back to using the latest rates data
      *
      * @return $this
      */
