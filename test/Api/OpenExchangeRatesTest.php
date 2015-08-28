@@ -4,6 +4,13 @@ use Amelia\Money\Api\Adapter\MockOpenExchangeRatesClient;
 use Carbon\Carbon;
 use PHPUnit_Framework_TestCase;
 
+/**
+ * Test that the openexchangerates API wrapper works correctly using a mock API
+ *
+ * @author Amelia Ikeda (amelia@dorks.io)
+ * @license MIT
+ * @link https://github.com/ameliaikeda/money
+ */
 class OpenExchangeRatesTest extends PHPUnit_Framework_TestCase
 {
     /**

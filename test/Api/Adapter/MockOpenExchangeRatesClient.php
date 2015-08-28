@@ -3,6 +3,13 @@
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * A mock API that uses static data taken from the OpenExchangeRates API
+ *
+ * @author Amelia Ikeda (amelia@dorks.io)
+ * @license MIT
+ * @link https://github.com/ameliaikeda/money
+ */
 class MockOpenExchangeRatesClient implements AdapterInterface
 {
     /**

@@ -3,9 +3,11 @@
 use Carbon\Carbon;
 
 /**
+ * A trait that adds the ability to add boilerplate to a factory
+ *
  * @author Amelia Ikeda (amelia@dorks.io)
  * @license MIT
- * @
+ * @link https://github.com/ameliaikeda/money
  */
 trait FactoryTrait
 {
