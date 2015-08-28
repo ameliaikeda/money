@@ -48,7 +48,8 @@ class OpenExchangeRates implements ApiInterface
     protected function check(ResponseInterface $response)
     {
         if (! $this->isJson($response)) {
-            throw new InvalidResponseException("json was expected, [{$response->getHeader('content-type')}] given");
+            $header = array_get($response->getHeader('content-type'), 0, "no content-type");
+            throw new InvalidResponseException("json was expected, [$header] given");
         }
         $response = json_decode($response->getBody()->getContents());
 
@@ -57,7 +58,7 @@ class OpenExchangeRates implements ApiInterface
         }
 
         if (isset($response->error)) {
-            $this->error($response->status, $response->message, $response->description);
+            return $this->error($response->status, $response->message, $response->description);
         }
 
         return $response;
@@ -115,7 +116,7 @@ class OpenExchangeRates implements ApiInterface
     {
         $type = array_get($response->getHeader('content-type'), 0, '');
 
-        return strpos($type, 'json') !== -1;
+        return strpos($type, 'json') !== false;
     }
 
     /**
