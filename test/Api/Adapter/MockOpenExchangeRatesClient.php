@@ -46,7 +46,7 @@ class MockOpenExchangeRatesClient implements AdapterInterface
      */
     protected function getEndpoint($url)
     {
-        return __DIR__.'/data'.($this->url ?: $url);
+        return __DIR__ . '/data' . ($this->url ?: $url);
     }
 
     /**

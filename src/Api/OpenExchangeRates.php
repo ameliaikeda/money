@@ -53,7 +53,7 @@ class OpenExchangeRates implements ApiInterface
         $response = json_decode($response->getBody()->getContents());
 
         if (! $response) {
-            throw new InvalidResponseException('Expected json object, got '.gettype($response).' from the API');
+            throw new InvalidResponseException('Expected json object, got ' . gettype($response) . ' from the API');
         }
 
         if (! isset($response->error)) {
@@ -92,13 +92,13 @@ class OpenExchangeRates implements ApiInterface
         // change snake_case to PascalCase
         $exception = str_replace('_', ' ', $code);
         $exception = str_replace(' ', '', ucwords($exception));
-        $exception = '\Amelia\Money\Exception\\'.$exception.'Exception';
+        $exception = '\Amelia\Money\Exception\\' . $exception . 'Exception';
 
         if (class_exists($exception)) {
             throw new $exception($description, $status);
         }
 
-        throw new InvalidResponseException($description." ($code)", $status);
+        throw new InvalidResponseException($description . " ($code)", $status);
     }
 
     /**
