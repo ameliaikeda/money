@@ -42,7 +42,7 @@ class OpenExchangeRates implements ApiInterface
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @throws \Amelia\Money\Exception\InvalidResponseException
-     * @return \stdClass|null
+     * @return \stdClass
      */
     protected function check(ResponseInterface $response)
     {
@@ -71,7 +71,12 @@ class OpenExchangeRates implements ApiInterface
      * @param string $description
      *
      * @throws \Amelia\Money\Exception\AccessDeniedException
-     * @throws \Amelia\Money\Exception\BaseNotFoundException
+     * @throws \Amelia\Money\Exception\AccessRestrictedException
+     * @throws \Amelia\Money\Exception\InvalidBaseException
+     * @throws \Amelia\Money\Exception\InvalidAppIdException
+     * @throws \Amelia\Money\Exception\MissingAppIdException
+     * @throws \Amelia\Money\Exception\NotAvailableException
+     * @throws \Amelia\Money\Exception\NotAllowedException
      * @throws \Amelia\Money\Exception\InvalidAuthException
      * @throws \Amelia\Money\Exception\InvalidResponseException
      * @throws \Amelia\Money\Exception\NotFoundException
