@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Exception;
+<?php
+
+namespace Amelia\Money\Exception;
 
 class InvalidBaseException extends ApiException
 {

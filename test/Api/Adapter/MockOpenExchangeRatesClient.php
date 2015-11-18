@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Api\Adapter;
+<?php
+
+namespace Amelia\Money\Api\Adapter;
 
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;

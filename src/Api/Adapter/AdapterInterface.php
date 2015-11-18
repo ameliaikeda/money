@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Api\Adapter;
+<?php
+
+namespace Amelia\Money\Api\Adapter;
 
 use Psr\Http\Message\RequestInterface;
 

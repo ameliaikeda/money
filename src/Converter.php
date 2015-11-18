@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money;
+<?php
+
+namespace Amelia\Money;
 
 /**
  * Converter for currencies, similar to money.js.

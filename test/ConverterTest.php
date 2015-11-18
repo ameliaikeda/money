@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money;
+<?php
+
+namespace Amelia\Money;
 
 use PHPUnit_Framework_TestCase;
 

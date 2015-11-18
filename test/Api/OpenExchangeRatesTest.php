@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Api;
+<?php
+
+namespace Amelia\Money\Api;
 
 use Amelia\Money\Api\Adapter\MockOpenExchangeRatesClient;
 use Carbon\Carbon;

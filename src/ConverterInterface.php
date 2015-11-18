@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money;
+<?php
+
+namespace Amelia\Money;
 
 /**
  * Main Converter interface to rely on; Immutable.

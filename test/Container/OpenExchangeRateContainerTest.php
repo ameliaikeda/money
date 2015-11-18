@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Container;
+<?php
+
+namespace Amelia\Money\Container;
 
 use PHPUnit_Framework_TestCase;
 use stdClass;
@@ -10,7 +12,7 @@ use stdClass;
  * @license MIT
  * @link https://github.com/ameliaikeda/money
  */
-class OpenExchangeRatesContainerTest extends PHPUnit_Framework_TestCase
+class OpenExchangeRateContainerTest extends PHPUnit_Framework_TestCase
 {
     protected static $json;
 
