@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Container;
+<?php
+
+namespace Amelia\Money\Container;
 
 use Carbon\Carbon;
 

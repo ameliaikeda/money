@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money;
+<?php
+
+namespace Amelia\Money;
 
 use Amelia\Money\Api\OpenExchangeRates;
 use Illuminate\Contracts\Foundation\Application;

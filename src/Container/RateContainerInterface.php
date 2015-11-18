@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money\Container;
+<?php
+
+namespace Amelia\Money\Container;
 
 /**
  * A container used for holding rates from an API, etc.

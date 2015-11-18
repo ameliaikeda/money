@@ -1,10 +1,9 @@
-<?php namespace Amelia\Money\Api;
+<?php
+
+namespace Amelia\Money\Api;
 
 use Amelia\Money\Api\Adapter\AdapterInterface;
 use Amelia\Money\Container\OpenExchangeRateContainer;
-use Amelia\Money\Exception\AccessDeniedException;
-use Amelia\Money\Exception\BaseNotFoundException;
-use Amelia\Money\Exception\InvalidAuthException;
 use Amelia\Money\Exception\InvalidResponseException;
 use Amelia\Money\Exception\NotFoundException;
 use Amelia\Money\Exception\RateLimitException;
@@ -47,17 +46,17 @@ class OpenExchangeRates implements ApiInterface
      */
     protected function check(ResponseInterface $response)
     {
-        if ( ! $this->isJson($response)) {
+        if (! $this->isJson($response)) {
             $header = array_get($response->getHeader('content-type'), 0, 'no content-type');
             throw new InvalidResponseException("json was expected, [$header] given");
         }
         $response = json_decode($response->getBody()->getContents());
 
-        if ( ! $response) {
+        if (! $response) {
             throw new InvalidResponseException('Expected json object, got '.gettype($response).' from the API');
         }
 
-        if ( ! isset($response->error)) {
+        if (! isset($response->error)) {
             return $response;
         }
 
@@ -87,13 +86,13 @@ class OpenExchangeRates implements ApiInterface
 
         // change snake_case to PascalCase
         $exception = str_replace('_', '', ucwords($code, '_'));
-        $exception = '\Amelia\Money\Exception\\' . $exception . 'Exception';
+        $exception = '\Amelia\Money\Exception\\'.$exception.'Exception';
 
         if (class_exists($exception)) {
             throw new $exception($description, $status);
         }
 
-        throw new InvalidResponseException($description . " ($code)", $status);
+        throw new InvalidResponseException($description." ($code)", $status);
     }
 
     /**

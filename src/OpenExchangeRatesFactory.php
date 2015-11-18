@@ -1,4 +1,6 @@
-<?php namespace Amelia\Money;
+<?php
+
+namespace Amelia\Money;
 
 use Amelia\Money\Api\Adapter\GuzzleHttpAdapter;
 use Amelia\Money\Api\ApiInterface;
