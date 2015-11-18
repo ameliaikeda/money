@@ -85,7 +85,8 @@ class OpenExchangeRates implements ApiInterface
         }
 
         // change snake_case to PascalCase
-        $exception = str_replace('_', '', ucwords($code, '_'));
+        $exception = str_replace('_', ' ', $code);
+        $exception = str_replace(' ', '', ucwords($exception));
         $exception = '\Amelia\Money\Exception\\'.$exception.'Exception';
 
         if (class_exists($exception)) {
