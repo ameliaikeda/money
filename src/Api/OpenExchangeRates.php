@@ -43,25 +43,25 @@ class OpenExchangeRates implements ApiInterface
      *
      * @param \Psr\Http\Message\ResponseInterface $response
      * @throws \Amelia\Money\Exception\InvalidResponseException
-     * @return \stdClass
+     * @return \stdClass|null
      */
     protected function check(ResponseInterface $response)
     {
-        if (! $this->isJson($response)) {
+        if ( ! $this->isJson($response)) {
             $header = array_get($response->getHeader('content-type'), 0, 'no content-type');
             throw new InvalidResponseException("json was expected, [$header] given");
         }
         $response = json_decode($response->getBody()->getContents());
 
-        if (! $response) {
+        if ( ! $response) {
             throw new InvalidResponseException('Expected json object, got '.gettype($response).' from the API');
         }
 
-        if (isset($response->error)) {
-            return $this->error($response->status, $response->message, $response->description);
+        if ( ! isset($response->error)) {
+            return $response;
         }
 
-        return $response;
+        return $this->error($response->status, $response->message, $response->description);
     }
 
     /**
@@ -85,25 +85,15 @@ class OpenExchangeRates implements ApiInterface
             throw new RateLimitException($description, $status);
         }
 
-        switch ($code) {
-            case 'access_restricted':
-            case 'not_allowed':
-                throw new AccessDeniedException($description, $status);
+        // change snake_case to PascalCase
+        $exception = str_replace('_', '', ucwords($code, '_'));
+        $exception = '\Amelia\Money\Exception\\' . $exception . 'Exception';
 
-            case 'invalid_base':
-                throw new BaseNotFoundException($description, $status);
-
-            case 'missing_app_id':
-            case 'invalid_app_id':
-                throw new InvalidAuthException($description, $status);
-
-            case 'not_available':
-            case 'not_found':
-                throw new NotFoundException($description, $status);
-
-            default:
-                throw new InvalidResponseException($description." ($code)", $status);
+        if (class_exists($exception)) {
+            throw new $exception($description, $status);
         }
+
+        throw new InvalidResponseException($description . " ($code)", $status);
     }
 
     /**

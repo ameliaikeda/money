@@ -1,6 +1,6 @@
 <?php namespace Amelia\Money\Exception;
 
-class BaseNotFoundException extends ApiException
+class InvalidBaseException extends ApiException
 {
     //
 }

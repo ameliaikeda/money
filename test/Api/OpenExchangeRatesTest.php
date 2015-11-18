@@ -111,7 +111,7 @@ class OpenExchangeRatesTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Amelia\Money\Exception\BaseNotFoundException
+     * @expectedException \Amelia\Money\Exception\InvalidBaseException
      * @expectedExceptionMessage unsupported `base` currency
      * @expectedExceptionCode 400
      */
