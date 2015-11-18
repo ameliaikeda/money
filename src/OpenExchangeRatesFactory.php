@@ -66,7 +66,7 @@ class OpenExchangeRatesFactory implements FactoryInterface
         $client = new Client([
             'base_uri' => 'https://openexchangerates.org/api',
             'query'    => ['app_id' => isset($options['key']) ? $options['key'] : null],
-            'headers'  => ['User-Agent' => 'amelia/money (https://github.com/ameliaikeda/money) v'.static::VERSION],
+            'headers'  => ['User-Agent' => 'amelia/money (https://github.com/ameliaikeda/money) v' . static::VERSION],
         ]);
         $api = new OpenExchangeRates(new GuzzleHttpAdapter($client));
 
